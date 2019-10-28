@@ -1,8 +1,9 @@
 package com.example.liyunhui.common;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
+@Async
 @Component
 public class Task2 {
     /**

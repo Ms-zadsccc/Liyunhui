@@ -1,0 +1,70 @@
+#redis调度配置
+spring:
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+  #    timeout: 5000
+#  thymeleaf资源调度配置
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+quartz:
+  enabled: true
+#    数据库资源调配
+  datasource:
+    username: root
+    password: 123456
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    druid:
+      #      filters: stat,wall,slf4j,config
+      filters: stat,wall,slf4j
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+#配置本地的数据库连接
+server:
+  tomcat:
+    uri-encoding: utf-8
+  port: 8888
+  servlet:
+    context-path: /demo
+#配置日志
+logging:
+  level:
+    com.ruoyi.ruoyi: debug
+
+#配置pagehelper分页
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#整合mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+

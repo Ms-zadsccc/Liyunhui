@@ -1,10 +1,12 @@
 package com.example.liyunhui.common;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 /**
  * 任务定时类u是的复合配方
  */
+@Async
 @Component
 public class Task1 {
     /**

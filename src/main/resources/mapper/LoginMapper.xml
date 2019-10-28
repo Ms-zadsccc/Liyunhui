@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.liyunhui.mapper.LoginMapper">
+    <select id="loginAll" resultType="hashmap">
+        select * from login
+    </select>
+    <insert id="insert" parameterType="com.example.liyunhui.model.Login">
+        insert into login(admin,password,callphone) values (#{admin},#{password},#{callphone})
+    </insert>
+    <select id="search" parameterType="string" resultType="hashmap">
+        select * from login where name =#{name}
+    </select>
+    <delete id="deleLogin" parameterType="int">
+        delete  from  login where id=#{id}
+    </delete>
+</mapper>
